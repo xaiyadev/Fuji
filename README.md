@@ -1,2 +1,2 @@
 # Fuji
-An System- and web wide solution for searching 
+A System- and web wide searching solution 
