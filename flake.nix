@@ -31,14 +31,24 @@
               inherit inputs pkgs;
               modules = [
                 {
+                  packages = [
+                    pkgs.libGL
+                    pkgs.xorg.libX11
+                    pkgs.fontconfig
+                  ];
+
                   languages = {
                     kotlin.enable = true;
                     java = {
                       enable = true;
+                      jdk.package = pkgs.jetbrains.jdk; # newest jdk version with better support for jetbrains products
                       gradle.enable = true;
                     };
                   };
 
+                  scripts.run-main.exec = ''
+                   LD_LIBRARY_PATH=${pkgs.libGL}/lib/ ${pkgs.jetbrains.jdk}/lib/openjdk/bin/java
+                  '';
                 }
               ];
             };

@@ -1,12 +1,11 @@
 package dev.xaiya
 
-class App {
-    val greeting: String
-        get() {
-            return "Hello World!"
-        }
-}
+import androidx.compose.material.Text
+import androidx.compose.ui.window.Window
+import androidx.compose.ui.window.application
 
-fun main() {
-    println(App().greeting)
+fun main() = application {
+    Window(onCloseRequest = ::exitApplication, title = "Cool new thing") {
+        Text("Save")
+    }
 }
